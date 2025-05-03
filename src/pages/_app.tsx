@@ -15,9 +15,10 @@ const somniaTestnet: Chain = {
     public: { http: ['https://dream-rpc.somnia.network'] },
   },
   blockExplorers: {
-    default: { name: 'Somnia Explorer', url: 'https://somnia.explorer.url' },
+    default: { name: 'Somnia Explorer', url: 'https://shannon-explorer.somnia.network/' },
   },
   testnet: true,
+  network: 'testnet',
 }
 
 const config = getDefaultConfig({
