@@ -1,0 +1,20 @@
+
+{
+  "name": "gm-onchain",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@rainbow-me/rainbowkit": "^2.2.0",
+    "wagmi": "^0.10.0",
+    "viem": "^1.0.0",
+    "next": "^13.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tailwindcss": "^3.0.0"
+  }
+}
+    
