@@ -1,9 +1,9 @@
-
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import '@rainbow-me/rainbowkit/styles.css'
 import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit'
-import { WagmiProvider, createConfig, Chain } from 'wagmi'
+import { WagmiConfig } from 'wagmi'
+import type { Chain } from '@wagmi/chains'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const somniaTestnet: Chain = {
@@ -31,13 +31,12 @@ const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <WagmiProvider config={config}>
+    <WagmiConfig config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
           <Component {...pageProps} />
         </RainbowKitProvider>
       </QueryClientProvider>
-    </WagmiProvider>
+    </WagmiConfig>
   )
 }
-    
