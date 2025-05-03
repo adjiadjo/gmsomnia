@@ -25,18 +25,19 @@ const client = createPublicClient({
 export default function Home() {
   const { isConnected } = useAccount()
   
-  const { write, isLoading, error } = useContractWrite({
-    address: CONTRACT_ADDRESS,
-    abi: CONTRACT_ABI,
-    functionName: 'gm',
+  // Correct usage of useContractWrite in wagmi v3.x
+  const { writeAsync, isLoading, error } = useContractWrite({
+    addressOrName: CONTRACT_ADDRESS,  // Corrected from 'address' to 'addressOrName'
+    contractInterface: CONTRACT_ABI,   // Corrected from 'abi' to 'contractInterface'
+    functionName: 'gm',               // The function you want to call
   })
 
   const [gms, setGms] = useState<{ sender: string; timestamp: bigint }[]>([])
 
   const handleGm = async () => {
     try {
-      if (write) {
-        await write()  // Trigger the contract call
+      if (writeAsync) {
+        await writeAsync()  // Corrected from 'write' to 'writeAsync'
         alert('gm sent!')
       } else {
         alert('Write function is not available!')
